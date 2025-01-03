@@ -33,7 +33,7 @@
       Dado que estou na tela de login
       Quando preencho login "" e senha "123456"
       E clico em Login
-      Então vejo mensagem "An email address required.." de login invalido
+      Então vejo mensagem "An email address required." de login invalido
 
 
     @senha-vazia
