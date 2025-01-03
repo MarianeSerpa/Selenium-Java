@@ -15,8 +15,6 @@ public class LoginPage extends RunCucumber {
     private By botaoEnviarSenha = By.cssSelector("#form_forgotpassword > fieldset > p > button");
 
 
-
-
     // ações / funções / métodos
     public void acessarAplicao() {
         getDriver("chrome").get(URL);
@@ -48,8 +46,8 @@ public class LoginPage extends RunCucumber {
     }
 
     public void verificaCampoInvalido(String message){
-        String textError = getDriver().findElement(By.cssSelector("div.alert.alert-danger")).getText();
-        Assert.assertEquals(message, textError);
+        String textoError = getDriver().findElement(By.cssSelector(".alert-danger li")).getText();
+        Assert.assertEquals(message, textoError);
     }
 
     public void verificaSenhaSucesso(){
