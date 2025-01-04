@@ -10,44 +10,57 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source> <!-- Atualizado para Java 11 -->
+        <maven.compiler.target>11</maven.compiler.target> <!-- Atualizado para Java 11 -->
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.27.0</version>
         </dependency>
-        <!-- CUCUMBER: PARA O JUNIT EXECUTAR-->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>2.3.1</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- CUCUMBER: PARA INTERPRETAR O BDD-->
+
+        <!-- Cucumber: Para o JUnit executar -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>2.3.1</version>
+            <version>7.20.1</version> <!-- Usando a versão mais recente -->
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.20.1</version> <!-- Atualizando para a versão mais recente -->
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Relatórios Cluecumber -->
         <dependency>
             <groupId>com.trivago.rta</groupId>
             <artifactId>cluecumber-report-plugin</artifactId>
-            <version>1.2.0</version>
+            <version>2.9.4</version>
         </dependency>
+
+        <!-- Maven Surefire Plugin para execução de testes -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.0.0-M5</version>
         </dependency>
-        <!-- Dependência para geração de dados falsos -->
+
+        <!-- Gerador de dados fictícios -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
+        </dependency>
+
+        <!-- WebDriverManager: para gerenciar o ChromeDriver -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.2</version> <!-- Usando a versão mais recente -->
         </dependency>
     </dependencies>
 
@@ -59,17 +72,19 @@
                 <version>3.7.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source> <!-- Atualizado para Java 11 -->
+                    <target>11</target> <!-- Atualizado para Java 11 -->
                     <includes>
                         <include>src/test/java</include>
                     </includes>
                 </configuration>
             </plugin>
+
+            <!-- Relatórios Cluecumber -->
             <plugin>
                 <groupId>com.trivago.rta</groupId>
                 <artifactId>cluecumber-report-plugin</artifactId>
-                <version>1.2.0</version>
+                <version>2.9.4</version>
                 <executions>
                     <execution>
                         <id>report</id>
@@ -84,6 +99,8 @@
                     <generatedHtmlReportDirectory>${project.build.directory}/formated-report</generatedHtmlReportDirectory>
                 </configuration>
             </plugin>
+
+            <!-- Plugin Surefire -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
