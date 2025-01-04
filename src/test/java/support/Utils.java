@@ -15,8 +15,8 @@ public class Utils extends RunCucumber {
     }
 
     public static String getRandomEmail() {
-        String email_init = "qazando_";
-        String email_final = "@qazando.com.br";
+        String email_init = "mariane.serpa_2701";
+        String email_final = "@hotmail.com";
 
         Random random = new Random();
         int minimo = 1;
