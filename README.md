@@ -32,7 +32,7 @@ Este projeto de automação visa a realização de testes automatizados das func
 Para executar o projeto, siga os passos abaixo:
 1.  Executar com interface grafica`mvn test -Dtest=RunCucumber -Dbrowser=chrome`.
 2. Executar em modo headless`mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci`.
-3. Executar criação de reporte de teste `mvn test -Dtest=RunCucumber -Dbrowser=chrome cluecumber-report:reporting`(Para consultar o reporte:target/formatted-report/index.html) .
+3. Executar criação de reporte de teste `mvn test cluecumber-report:reporting`(Para consultar o reporte:target/formatted-report/index.html) .
 
 
 ## Preview de Resultados
