@@ -16,7 +16,7 @@ Este projeto de automação visa a realização de testes automatizados das func
 ## Bibliotecas Utilizadas
 - **Selenium WebDriver:** Automação de navegação web.
 - **JUnit:** Framework para testes.
-- **WebDriverWait:** Gerenciamento de tempo de espera.
+- **Cucumber:** Ferramenta que suporta BDD.
 - **ChromeDriver:** Driver para execução no navegador Google Chrome.
 - **Linguagem:** Java 11.
 
@@ -25,7 +25,7 @@ Este projeto de automação visa a realização de testes automatizados das func
 
 ## Dica
 
-- Para executar os testes sem instalar o maven basta acessar o arquivo "RunCumber" e clicar na seta RUN
+- Para executar os testes sem instalar o maven basta acessar o arquivo "RunCucumber" e clicar na seta RUN
 
 
 ## Execução
