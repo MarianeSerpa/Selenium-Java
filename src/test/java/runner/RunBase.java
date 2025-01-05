@@ -57,7 +57,6 @@ public class RunBase {
             default:
                 throw new IllegalArgumentException("Navegador não encontrado! Use: chrome, chrome-ci, firefox ou firefox-ci.");
         }
-
         // Configurações padrão do driver
         if (driver != null) {
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
