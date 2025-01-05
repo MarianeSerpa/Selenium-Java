@@ -9,7 +9,7 @@
     @login-sucesso
     Cenário: Login com sucesso
       Dado que estou na tela de login
-      #Quando preencho login "mariane.serpa_2701@hotmail.com" e senha "123456"
+      Quando preencho login "mariane.serpa_2701@hotmail.com" e senha "123456"
       E clico em Login
       Então vejo mensagem de login com sucesso
 
