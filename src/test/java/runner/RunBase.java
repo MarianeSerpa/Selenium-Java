@@ -5,50 +5,65 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
 import java.util.concurrent.TimeUnit;
 
 public class RunBase {
 
-    static WebDriver driver;
+    private static WebDriver driver;
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            throw new IllegalStateException("Driver não foi inicializado. Use getDriver(String browser) para configurá-lo.");
+        }
         return driver;
     }
 
     public static WebDriver getDriver(String browser) {
 
-        if (driver !=  null) {
+        if (driver != null) {
             driver.quit();
         }
 
-        // Configuração do WebDriverManager para garantir que a versão correta do driver seja utilizada
-        WebDriverManager.chromedriver().setup(); // Essa linha garante que o WebDriverManager busque o driver correto
+        // Lê a variável de sistema 'browser' diretamente
+        String browserProperty = System.getProperty("browser", browser);
 
-        switch (browser) {
+        switch (browserProperty.toLowerCase()) {
             case "chrome":
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
 
             case "chrome-ci":
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
                 driver = new ChromeDriver(chromeOptions);
                 break;
 
             case "firefox":
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
 
-            case "edge":
-                throw new IllegalArgumentException("Edge ainda nao suportado");
+            case "firefox-ci":
+                WebDriverManager.firefoxdriver().setup();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("-headless");
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
 
             default:
-                throw new IllegalArgumentException("Navegador não encontrado! Passe um navegador existente: chrome, firefox ou edge.");
+                throw new IllegalArgumentException("Navegador não encontrado! Use: chrome, chrome-ci, firefox ou firefox-ci.");
         }
 
-        if(driver != null){
+        // Configurações padrão do driver
+        if (driver != null) {
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            driver.manage().window().maximize();
         }
+
         return driver;
     }
 }
