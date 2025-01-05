@@ -37,7 +37,7 @@ Para executar o projeto, siga os passos abaixo:
 
 ## Preview de Resultados
 
-![](https://github.com/MarianeSerpa/Mantis-Selenium-Java/blob/main/sucesso.gif)
+![](https://github.com/MarianeSerpa/Selenium-Java/blob/master/sucesso.gif)
 
 ## Pipeline
 <https://github.com/MarianeSerpa/Selenium-Java/actions> 
