@@ -18,7 +18,7 @@ Este projeto de automação visa a realização de testes automatizados das func
 - **JUnit:** Framework para testes.
 - **WebDriverWait:** Gerenciamento de tempo de espera.
 - **ChromeDriver:** Driver para execução no navegador Google Chrome.
-**Linguagem:** Java 11.
+- **Linguagem:** Java 11.
 
 ## IDE
 - **IntelliJ:** Ambiente de desenvolvimento integrado utilizado para a construção e execução do projeto, necessario plugin "Gherkin" e "Cucumber for Java".
